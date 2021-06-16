@@ -1,0 +1,2941 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/7/2021 8:42:33 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-P4D2GSTN"
+  DTS:CreatorName="LAPTOP-P4D2GSTN\richa"
+  DTS:DTSID="{01A34203-0040-4D8A-946C-67620B2DB65A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Staging to DWH"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{B128A446-1F5F-4773-A83E-D753030957FC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Staging customer to DWH customer_dimension"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{0A2D0389-E40A-446F-9D7D-D00330793A2C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Staging customer to DWH customer_dimension"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DWH customer_dimension"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[customer_dimension]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Connections[OleDbConnection]"
+                  connectionManagerID="{DB144FEE-4950-4AF5-B588-532B18A9432C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-P4D2GSTN_SQLEXPRESS.Data_warehouse]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="source"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[source]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].ExternalColumns[retailer_code]"
+                      dataType="i4"
+                      name="retailer_code" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].ExternalColumns[company_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="company_name" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].ExternalColumns[address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="address" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input].ExternalColumns[discount]"
+                      dataType="r8"
+                      name="discount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Staging customer_AC"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[customer_AC]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Connections[OleDbConnection]"
+                  connectionManagerID="{F5810308-C805-4439-8834-CFEA3CEE055D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-P4D2GSTN_SQLEXPRESS.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[source]"
+                      name="source"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[company_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[company_name]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[company_name]"
+                      name="company_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[state]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[state]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[state]"
+                      name="state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[address]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[address]"
+                      name="address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[discount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[discount]"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[discount]"
+                      name="discount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[company_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="company_name" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="address" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].ExternalColumns[discount]"
+                      dataType="r8"
+                      name="discount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[company_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[company_name]"
+                      name="company_name" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[state]"
+                      name="state" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[address]"
+                      name="address" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[discount]"
+                      dataType="r8"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[discount]"
+                      name="discount" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[source]"
+                      name="source" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Staging customer_GO"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[customer_GO]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Connections[OleDbConnection]"
+                  connectionManagerID="{F5810308-C805-4439-8834-CFEA3CEE055D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-P4D2GSTN_SQLEXPRESS.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[source]"
+                      name="source"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[retailer_code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[retailer_code]"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[retailer_code]"
+                      name="retailer_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[company_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[company_name]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[company_name]"
+                      name="company_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[address]"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[address]"
+                      name="address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[discount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[discount]"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[discount]"
+                      name="discount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[retailer_code]"
+                      dataType="i4"
+                      name="retailer_code" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[company_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="company_name" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="address" />
+                    <externalMetadataColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].ExternalColumns[discount]"
+                      dataType="r8"
+                      name="discount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[retailer_code]"
+                      dataType="i4"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[retailer_code]"
+                      name="retailer_code" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[company_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[company_name]"
+                      name="company_name" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[address]"
+                      name="address" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[discount]"
+                      dataType="r8"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[discount]"
+                      name="discount" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[source]"
+                      name="source" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging customer to DWH customer_dimension\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 1].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="source"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[source]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[source]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 1].Columns[retailer_code]"
+                      cachedDataType="i4"
+                      cachedName="retailer_code"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[retailer_code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[retailer_code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 1].Columns[company_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="company_name"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[company_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[company_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 1].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="country"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 1].Columns[region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="region"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[region]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 1].Columns[address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="address"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[address]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[address]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 1].Columns[discount]"
+                      cachedDataType="r8"
+                      cachedName="discount"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output].Columns[discount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[discount]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 2].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="source"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[source]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[source]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 2].Columns[company_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="company_name"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[company_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[company_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 2].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="country"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 2].Columns[address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="address"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[address]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[address]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 2].Columns[discount]"
+                      cachedDataType="r8"
+                      cachedName="discount"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[discount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[discount]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 2].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[retailer_code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 2].Columns[state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="state"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output].Columns[state]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[region]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[source]"
+                      name="source" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[retailer_code]"
+                      dataType="i4"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[retailer_code]"
+                      name="retailer_code" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[company_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[company_name]"
+                      name="company_name" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[address]"
+                      name="address" />
+                    <outputColumn
+                      refId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[discount]"
+                      dataType="r8"
+                      lineageId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1].Columns[discount]"
+                      name="discount" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Staging customer to DWH customer_dimension.Paths[OLE DB Source Output]"
+              endId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Staging customer to DWH customer_dimension\Staging customer_GO.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Staging customer to DWH customer_dimension.Paths[OLE DB Source Output1]"
+              endId="Package\Staging customer to DWH customer_dimension\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Source Output"
+              startId="Package\Staging customer to DWH customer_dimension\Staging customer_AC.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Staging customer to DWH customer_dimension.Paths[Union All Output 1]"
+              endId="Package\Staging customer to DWH customer_dimension\DWH customer_dimension.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Staging customer to DWH customer_dimension\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Staging employee to DWH employee_dimension"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{4A3AD867-F0ED-4729-A2A7-E622B9B21B10}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Staging employee to DWH employee_dimension"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DWH employee_dimension"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[employee_dimension]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Connections[OleDbConnection]"
+                  connectionManagerID="{DB144FEE-4950-4AF5-B588-532B18A9432C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-P4D2GSTN_SQLEXPRESS.Data_warehouse]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="source"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[source]" />
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].Columns[sales_staff_code]"
+                      cachedDataType="i4"
+                      cachedName="sales_staff_code"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].ExternalColumns[staff_code]"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[sales_staff_code]" />
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[last_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].ExternalColumns[staff_code]"
+                      dataType="i4"
+                      name="staff_code" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="last_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Staging employee_AC"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[employee_AC]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Connections[OleDbConnection]"
+                  connectionManagerID="{F5810308-C805-4439-8834-CFEA3CEE055D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-P4D2GSTN_SQLEXPRESS.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[source]"
+                      name="source"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[emp_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].ExternalColumns[emp_id]"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[emp_id]"
+                      name="emp_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[emp_fname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].ExternalColumns[emp_fname]"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[emp_fname]"
+                      name="emp_fname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[emp_lname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].ExternalColumns[emp_lname]"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[emp_lname]"
+                      name="emp_lname"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].ExternalColumns[emp_id]"
+                      dataType="i4"
+                      name="emp_id" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].ExternalColumns[emp_fname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="emp_fname" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].ExternalColumns[emp_lname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="emp_lname" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[emp_id]"
+                      dataType="i4"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[emp_id]"
+                      name="emp_id" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[emp_fname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[emp_fname]"
+                      name="emp_fname" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[emp_lname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[emp_lname]"
+                      name="emp_lname" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[source]"
+                      name="source" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Staging employee_GO"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[employee_GO]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Connections[OleDbConnection]"
+                  connectionManagerID="{F5810308-C805-4439-8834-CFEA3CEE055D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-P4D2GSTN_SQLEXPRESS.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[source]"
+                      name="source"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[sales_staff_code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].ExternalColumns[sales_staff_code]"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[sales_staff_code]"
+                      name="sales_staff_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].ExternalColumns[sales_staff_code]"
+                      dataType="i4"
+                      name="sales_staff_code" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="last_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[sales_staff_code]"
+                      dataType="i4"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[sales_staff_code]"
+                      name="sales_staff_code" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[source]"
+                      name="source" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging employee to DWH employee_dimension\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 1].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="source"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[source]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[source]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 1].Columns[sales_staff_code]"
+                      cachedDataType="i4"
+                      cachedName="sales_staff_code"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[sales_staff_code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[sales_staff_code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 1].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="first_name"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[first_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[first_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 1].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="last_name"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output].Columns[last_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[last_name]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 2].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="source"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[source]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[source]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 2].Columns[emp_id]"
+                      cachedDataType="i4"
+                      cachedName="emp_id"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[emp_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[sales_staff_code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 2].Columns[emp_fname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="emp_fname"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[emp_fname]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[first_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 2].Columns[emp_lname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="emp_lname"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output].Columns[emp_lname]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[last_name]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[source]"
+                      name="source" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[sales_staff_code]"
+                      dataType="i4"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[sales_staff_code]"
+                      name="sales_staff_code" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1].Columns[last_name]"
+                      name="last_name" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Staging employee to DWH employee_dimension.Paths[OLE DB Source Output]"
+              endId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Staging employee to DWH employee_dimension\Staging employee_GO.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Staging employee to DWH employee_dimension.Paths[OLE DB Source Output1]"
+              endId="Package\Staging employee to DWH employee_dimension\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Source Output"
+              startId="Package\Staging employee to DWH employee_dimension\Staging employee_AC.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Staging employee to DWH employee_dimension.Paths[Union All Output 1]"
+              endId="Package\Staging employee to DWH employee_dimension\DWH employee_dimension.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Staging employee to DWH employee_dimension\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Staging product to DWH product_dimension"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{9222F71C-22B6-4304-902F-D1BCF1E1C48F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Staging product to DWH product_dimension"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Staging product to DWH product_dimension\DWH product_dimension"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DWH product_dimension"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[product_dimension]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Connections[OleDbConnection]"
+                  connectionManagerID="{DB144FEE-4950-4AF5-B588-532B18A9432C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-P4D2GSTN_SQLEXPRESS.Data_warehouse]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].Columns[product_number]"
+                      cachedDataType="i4"
+                      cachedName="product_number"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].ExternalColumns[product_number]"
+                      lineageId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_number]" />
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].Columns[product_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].ExternalColumns[product_name]"
+                      lineageId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_name]" />
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].Columns[product_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_type"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].ExternalColumns[product_type]"
+                      lineageId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_type]" />
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="source"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                      lineageId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[source]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].ExternalColumns[product_number]"
+                      dataType="i4"
+                      name="product_number" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].ExternalColumns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="product_name" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].ExternalColumns[product_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="product_type" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging product to DWH product_dimension\DWH product_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\DWH product_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging product to DWH product_dimension\DWH product_dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging product to DWH product_dimension\Staging product_AC"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Staging product_AC"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[product_AC]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging product to DWH product_dimension\Staging product_AC.Connections[OleDbConnection]"
+                  connectionManagerID="{F5810308-C805-4439-8834-CFEA3CEE055D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-P4D2GSTN_SQLEXPRESS.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].ExternalColumns[product_name]"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[product_name]"
+                      name="product_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[category]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].ExternalColumns[category]"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[category]"
+                      name="category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[source]"
+                      name="source"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].ExternalColumns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="product_name" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].ExternalColumns[category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[product_name]"
+                      name="product_name" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[source]"
+                      name="source" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging product to DWH product_dimension\Staging product_GO"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Staging product_GO"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[product_GO]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging product to DWH product_dimension\Staging product_GO.Connections[OleDbConnection]"
+                  connectionManagerID="{F5810308-C805-4439-8834-CFEA3CEE055D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-P4D2GSTN_SQLEXPRESS.Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[product_number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].ExternalColumns[product_number]"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[product_number]"
+                      name="product_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].ExternalColumns[product_name]"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[product_name]"
+                      name="product_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[product_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].ExternalColumns[product_type]"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[product_type]"
+                      name="product_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[source]"
+                      name="source"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].ExternalColumns[product_number]"
+                      dataType="i4"
+                      name="product_number" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].ExternalColumns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="product_name" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].ExternalColumns[product_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="product_type" />
+                    <externalMetadataColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].ExternalColumns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[product_number]"
+                      dataType="i4"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[product_number]"
+                      name="product_number" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[product_name]"
+                      name="product_name" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[product_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[product_type]"
+                      name="product_type" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[source]"
+                      name="source" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging product to DWH product_dimension\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 1].Columns[product_number]"
+                      cachedDataType="i4"
+                      cachedName="product_number"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[product_number]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_number]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 1].Columns[product_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[product_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 1].Columns[product_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_type"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[product_type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 1].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="source"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output].Columns[source]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[source]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 2].Columns[product_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[product_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 2].Columns[source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="source"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[source]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[source]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 2].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_number]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 2].Columns[category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="category"
+                      lineageId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output].Columns[category]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_type]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_number]"
+                      dataType="i4"
+                      lineageId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_number]"
+                      name="product_number" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_name]"
+                      name="product_name" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[product_type]"
+                      name="product_type" />
+                    <outputColumn
+                      refId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1].Columns[source]"
+                      name="source" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Staging product to DWH product_dimension.Paths[OLE DB Source Output]"
+              endId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Staging product to DWH product_dimension\Staging product_GO.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Staging product to DWH product_dimension.Paths[OLE DB Source Output1]"
+              endId="Package\Staging product to DWH product_dimension\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Source Output"
+              startId="Package\Staging product to DWH product_dimension\Staging product_AC.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Staging product to DWH product_dimension.Paths[Union All Output 1]"
+              endId="Package\Staging product to DWH product_dimension\DWH product_dimension.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Staging product to DWH product_dimension\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="296.8,41.6"
+          Id="Package\Staging customer to DWH customer_dimension"
+          TopLeft="57.4999977151553,255.666668698522" />
+        <NodeLayout
+          Size="301.6,41.6"
+          Id="Package\Staging employee to DWH employee_dimension"
+          TopLeft="57.4999977151556,159.466667933994" />
+        <NodeLayout
+          Size="280.8,41.6"
+          Id="Package\Staging product to DWH product_dimension"
+          TopLeft="60.8333309160343,69.3333338843452" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Staging customer to DWH customer_dimension">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Staging customer to DWH customer_dimension\Union All"
+          TopLeft="208.333325054911,187.200001487732" />
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\Staging customer to DWH customer_dimension\DWH customer_dimension"
+          TopLeft="170.833328929213,325.066668781175" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Staging customer to DWH customer_dimension\Staging customer_GO"
+          TopLeft="60,60.866666673555" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Staging customer to DWH customer_dimension\Staging customer_AC"
+          TopLeft="301.666657063696,60" />
+        <EdgeLayout
+          Id="Package\Staging customer to DWH customer_dimension.Paths[Union All Output 1]"
+          TopLeft="270.183326992062,228.800001487732">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,96.266667293443"
+              Start="0,0"
+              End="0,88.766667293443">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.766667293443" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging customer to DWH customer_dimension.Paths[OLE DB Source Output1]"
+          TopLeft="391.266657063696,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-104.266665342119,85.600001487732"
+              Start="0,0"
+              End="-104.266665342119,78.100001487732">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8842113452209" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.8842113452209"
+                    Point2="0,42.8842113452209"
+                    Point3="-4,42.8842113452209" />
+                  <mssgle:LineSegment
+                    End="-100.266665342119,42.8842113452209" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.266665342119,42.8842113452209"
+                    Point2="-104.266665342119,42.8842113452209"
+                    Point3="-104.266665342119,46.8842113452209" />
+                  <mssgle:LineSegment
+                    End="-104.266665342119,78.100001487732" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging customer to DWH customer_dimension.Paths[OLE DB Source Output]"
+          TopLeft="150.4,102.466666673555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.766658752495,84.733334814177"
+              Start="0,0"
+              End="108.766658752495,77.233334814177">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.3666674070885" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.3666674070885"
+                    Point2="0,42.3666674070885"
+                    Point3="4,42.3666674070885" />
+                  <mssgle:LineSegment
+                    End="104.766658752495,42.3666674070885" />
+                  <mssgle:CubicBezierSegment
+                    Point1="104.766658752495,42.3666674070885"
+                    Point2="108.766658752495,42.3666674070885"
+                    Point3="108.766658752495,46.3666674070885" />
+                  <mssgle:LineSegment
+                    End="108.766658752495,77.233334814177" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging customer to DWH customer_dimension\DWH customer_dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging customer to DWH customer_dimension\Staging customer_GO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging customer to DWH customer_dimension\Staging customer_AC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Staging employee to DWH employee_dimension">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Staging employee to DWH employee_dimension\Staging employee_GO"
+          TopLeft="60,60.866666673555" />
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Staging employee to DWH employee_dimension\DWH employee_dimension"
+          TopLeft="170.833328929213,325.066668781175" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Staging employee to DWH employee_dimension\Staging employee_AC"
+          TopLeft="301.666657063696,60" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Staging employee to DWH employee_dimension\Union All"
+          TopLeft="209,197" />
+        <EdgeLayout
+          Id="Package\Staging employee to DWH employee_dimension.Paths[OLE DB Source Output]"
+          TopLeft="151.6,102.466666673555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.7333333333333,94.533333326445"
+              Start="0,0"
+              End="98.7333333333333,87.033333326445">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.9736842064477" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.9736842064477"
+                    Point2="0,55.9736842064477"
+                    Point3="4,55.9736842064477" />
+                  <mssgle:LineSegment
+                    End="94.7333333333333,55.9736842064477" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.7333333333333,55.9736842064477"
+                    Point2="98.7333333333333,55.9736842064477"
+                    Point3="98.7333333333333,59.9736842064477" />
+                  <mssgle:LineSegment
+                    End="98.7333333333333,87.033333326445" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging employee to DWH employee_dimension.Paths[OLE DB Source Output1]"
+          TopLeft="392.466657063696,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-104.799990397029,95.4000000000001"
+              Start="0,0"
+              End="-104.799990397029,87.9000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4868421052632" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.4868421052632"
+                    Point2="0,56.4868421052632"
+                    Point3="-4,56.4868421052632" />
+                  <mssgle:LineSegment
+                    End="-100.799990397029,56.4868421052632" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.799990397029,56.4868421052632"
+                    Point2="-104.799990397029,56.4868421052632"
+                    Point3="-104.799990397029,60.4868421052632" />
+                  <mssgle:LineSegment
+                    End="-104.799990397029,87.9000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging employee to DWH employee_dimension.Paths[Union All Output 1]"
+          TopLeft="271.116664464607,238.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,86.4666687811749"
+              Start="0,0"
+              End="0,78.9666687811749">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.9666687811749" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging employee to DWH employee_dimension\Staging employee_GO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging employee to DWH employee_dimension\DWH employee_dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging employee to DWH employee_dimension\Staging employee_AC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Staging product to DWH product_dimension">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Staging product to DWH product_dimension\Staging product_GO"
+          TopLeft="124.166661732727,104.000000826518" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Staging product to DWH product_dimension\Union All"
+          TopLeft="270.833322571384,251.333335330751" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Staging product to DWH product_dimension\DWH product_dimension"
+          TopLeft="234.99999066194,369.200002934138" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Staging product to DWH product_dimension\Staging product_AC"
+          TopLeft="365.833318796423,103.133334152963" />
+        <EdgeLayout
+          Id="Package\Staging product to DWH product_dimension.Paths[Union All Output 1]"
+          TopLeft="331.316656616662,292.933335330751">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.266667603387"
+              Start="0,0"
+              End="0,68.766667603387">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.766667603387" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging product to DWH product_dimension.Paths[OLE DB Source Output1]"
+          TopLeft="451.433318796423,144.733334152963">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-101.933329558373,106.600001177788"
+              Start="0,0"
+              End="-101.933329558373,99.1000011777878">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.118421750006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.118421750006"
+                    Point2="0,63.118421750006"
+                    Point3="-4,63.118421750006" />
+                  <mssgle:LineSegment
+                    End="-97.9333295583726,63.118421750006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-97.9333295583726,63.118421750006"
+                    Point2="-101.933329558373,63.118421750006"
+                    Point3="-101.933329558373,67.118421750006" />
+                  <mssgle:LineSegment
+                    End="-101.933329558373,99.1000011777878" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging product to DWH product_dimension.Paths[OLE DB Source Output]"
+          TopLeft="210.566661732727,145.600000826518">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.599994171991,105.733334504233"
+              Start="0,0"
+              End="101.599994171991,98.2333345042335">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.6052638511909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,58.6052638511909"
+                    Point2="0,62.6052638511909"
+                    Point3="4,62.6052638511909" />
+                  <mssgle:LineSegment
+                    End="97.5999941719906,62.6052638511909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.5999941719906,62.6052638511909"
+                    Point2="101.599994171991,62.6052638511909"
+                    Point3="101.599994171991,66.6052638511909" />
+                  <mssgle:LineSegment
+                    End="101.599994171991,98.2333345042335" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging product to DWH product_dimension\Staging product_GO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging product to DWH product_dimension\DWH product_dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging product to DWH product_dimension\Staging product_AC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
